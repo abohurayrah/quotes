@@ -4,18 +4,13 @@ import pandas as pd
 import io
 import logging
 import traceback
-import os
-from dotenv import load_dotenv
 import base64
-
-# Load environment variables from .env file
-load_dotenv()
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # --- Configuration ---
-MODEL_NAME = "gemini-2.5-pro-exp-03-25" # Keep using the specified model
+MODEL_NAME = "gemini-2.5-pro-exp-03-25"
 
 # --- Gemini Helper Function ---
 def get_gemini_response(api_key: str, pdf_file_obj, prompt: str):
@@ -148,10 +143,7 @@ st.markdown("Upload a PDF quotation, and this app will attempt to extract the it
 
 # --- API Key Input ---
 st.sidebar.header("Configuration")
-# First try to get API key from environment variable
-api_key = os.getenv("GOOGLE_API_KEY", "")
-if not api_key:
-    api_key = st.sidebar.text_input("Enter your Google AI API Key:", type="password")
+api_key = st.sidebar.text_input("Enter your Google AI API Key:", type="password")
 st.sidebar.markdown(
     "🔑 Get your API key from [Google AI Studio](https://aistudio.google.com/app/apikey)."
     "\n\n⚠️ **Never share your API key.** This app processes it locally in your browser session, but use caution."
