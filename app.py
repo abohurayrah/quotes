@@ -10,7 +10,7 @@ import base64
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # --- Configuration ---
-MODEL_NAME = "gemini-2.5-pro-exp-03-25"
+MODEL_NAME = "gemini-2.5-pro-exp-05-06"
 
 # --- Gemini Helper Function ---
 def get_gemini_response(api_key: str, pdf_file_obj, prompt: str):
